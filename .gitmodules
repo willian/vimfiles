@@ -73,3 +73,6 @@
 [submodule "bundles/Command-T"]
 	path = bundles/Command-T
 	url = git://github.com/wincent/Command-T.git
+[submodule "bundles/vim-railscasts-theme/colors"]
+	path = bundles/vim-railscasts-theme/colors
+	url = git://github.com/jpo/vim-railscasts-theme.git
