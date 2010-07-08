@@ -1,38 +1,11 @@
-" hashrocket.vim
+" wfernandes.vim
 " vim:set ft=vim et tw=78 sw=2:
-
-if $HASHROCKET_DIR == '' && expand('<sfile>') =~# '/dotmatrix/\.vim/plugin/hashrocket\.vim$'
-  let $HASHROCKET_DIR = expand('<sfile>')[0 : -20]
-endif
-if $HASHROCKET_DIR == '' && filereadable(expand('~/.bashrc'))
-  let $HASHROCKET_DIR = expand(matchstr("\n".join(readfile(expand('~/.bashrc')),"\n")."\n",'\n\%(export\)\=\s*HASHROCKET_DIR="\=\zs.\{-\}\ze"\=\n'))
-endif
-if $HASHROCKET_DIR == ''
-  let $HASHROCKET_DIR = substitute(system("bash -i -c 'echo \"$HASHROCKET_DIR\"'"),'\n$','','')
-endif
-if $HASHROCKET_DIR == ''
-  let $HASHROCKET_DIR = expand('~/hashrocket')
-endif
-
-function! s:HComplete(A,L,P)
-  let match = split(glob($HASHROCKET_DIR.'/'.a:A.'*'),"\n")
-  return map(match,'v:val[strlen($HASHROCKET_DIR)+1 : -1]')
-endfunction
-command! -bar -nargs=1 Hcommand :command! -bar -bang -nargs=1 -complete=customlist,s:HComplete H<args> :<args><lt>bang> $HASHROCKET_DIR/<lt>args>
-
-Hcommand cd
-Hcommand lcd
-Hcommand read
-Hcommand edit
-Hcommand split
-Hcommand saveas
-Hcommand tabedit
 
 command! -bar -nargs=* -complete=dir Terrarails :execute 'Rails --template='.system("ruby -rubygems -e 'print Gem.bin_path(%(terraformation))'") . ' ' . <q-args>
 
 command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 
-function! HTry(function, ...)
+function! WTry(function, ...)
   if exists('*'.a:function)
     return call(a:function, a:000)
   else
@@ -60,7 +33,7 @@ set showcmd
 set showmatch
 set smarttab
 if &statusline == ''
-  set statusline=[%n]\ %<%.99f\ %h%w%m%r%{HTry('CapsLockStatusline')}%y%{HTry('rails#statusline')}%{HTry('fugitive#statusline')}%#ErrorMsg#%{HTry('SyntasticStatuslineFlag')}%*%=%-16(\ %l,%c-%v\ %)%P
+  set statusline=[%n]\ %<%.99f\ %h%w%m%r%{WTry('CapsLockStatusline')}%y%{WTry('rails#statusline')}%{WTry('fugitive#statusline')}%#ErrorMsg#%{WTry('SyntasticStatuslineFlag')}%*%=%-16(\ %l,%c-%v\ %)%P
 endif
 set ttimeoutlen=50  " Make Esc work faster
 set wildmenu
@@ -144,7 +117,7 @@ if !exists('g:syntax_on')
 endif
 filetype plugin indent on
 
-augroup hashrocket
+augroup wferbandes
   autocmd!
 
   autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
@@ -155,8 +128,8 @@ augroup hashrocket
   autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
         \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
 
-  autocmd FileType javascript             setlocal et sw=2 sts=2 isk+=$
-  autocmd FileType html,xhtml,css         setlocal et sw=2 sts=2
+  " autocmd FileType javascript             setlocal noexpandtab sw=2 sts=2 isk+=$
+  " autocmd FileType html,xhtml,css         setlocal noexpandtab sw=2 sts=2
   autocmd FileType eruby,yaml,ruby        setlocal et sw=2 sts=2
   autocmd FileType cucumber               setlocal et sw=2 sts=2
   autocmd FileType gitcommit              setlocal spell
@@ -165,6 +138,8 @@ augroup hashrocket
 
   autocmd Syntax   css  syn sync minlines=50
 
+  autocmd User Rails if &filetype != 'ruby' | setlocal noexpandtab | endif
+  autocmd User Rails if &filetype == 'yaml' | setlocal sw=2 sts=2 expandtab | endif
   autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
   autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
   autocmd User Rails Rnavcommand seeds db/ -default=seeds
