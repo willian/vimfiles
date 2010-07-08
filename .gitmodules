@@ -76,3 +76,12 @@
 [submodule "bundles/vim-railscasts-theme/colors"]
 	path = bundles/vim-railscasts-theme/colors
 	url = git://github.com/jpo/vim-railscasts-theme.git
+[submodule "snippets"]
+	path = snippets
+	url = git://github.com/akitaonrails/snipmate-snippets.git
+[submodule "bundles/snipmate"]
+	path = bundles/snipmate
+	url = git://github.com/akitaonrails/snipmate.vim.git
+[submodule "bundles/lesscss"]
+	path = bundles/lesscss
+	url = git://gist.github.com/369178.git
