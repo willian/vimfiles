@@ -17,6 +17,12 @@ if filereadable(expand('~/.vimrc.local'))
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TABs size
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ts=2
+set bs=2
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader character
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
@@ -38,6 +44,7 @@ autocmd BufWritePre *.py        normal m`:%s/\s\+$//e ``
 autocmd BufWritePre *.pt        normal m`:%s/\s\+$//e ``
 autocmd BufWritePre *.rb        normal m`:%s/\s\+$//e ``
 autocmd BufWritePre *.js        normal m`:%s/\s\+$//e ``
+autocmd BufWritePre *.js.erb    normal m`:%s/\s\+$//e ``
 autocmd BufWritePre *.css       normal m`:%s/\s\+$//e ``
 autocmd BufWritePre *.html      normal m`:%s/\s\+$//e ``
 autocmd BufWritePre *.html.erb  normal m`:%s/\s\+$//e ``
@@ -57,12 +64,4 @@ cab wQ wq
 cab WQ wq
 cab Q  q
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: rails-vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rails_default_file='config/database.yml'
-autocmd User Rails if &filetype != 'ruby' | setlocal noexpandtab | endif
-autocmd User Rails if &filetype == 'yaml' | setlocal sw=2 sts=2 expandtab | endif
-autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
-autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
-
+" autocmd User Rails setlocal noexpandtab
