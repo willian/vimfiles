@@ -85,3 +85,6 @@
 [submodule "bundles/lesscss"]
 	path = bundles/lesscss
 	url = git://gist.github.com/369178.git
+[submodule "bundles/rvm"]
+	path = bundles/rvm
+	url = git://github.com/csexton/rvm.vim.git

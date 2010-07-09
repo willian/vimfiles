@@ -33,7 +33,7 @@ set showcmd
 set showmatch
 set smarttab
 if &statusline == ''
-  set statusline=[%n]\ %<%.99f\ %h%w%m%r%{WTry('CapsLockStatusline')}%y%{WTry('rails#statusline')}%{WTry('fugitive#statusline')}%#ErrorMsg#%{WTry('SyntasticStatuslineFlag')}%*%=%-16(\ %l,%c-%v\ %)%P
+  set statusline=[%n]\ %<%.99f\ %h%w%m%r%{WTry('CapsLockStatusline')}%y%{WTry('rails#statusline')}%{WTry('fugitive#statusline')}%#ErrorMsg#%{WTry('SyntasticStatuslineFlag')}%*%{exists('g:loaded_rvm')?rvm#statusline():''}%=%-16(\ %l,%c-%v\ %)%P
 endif
 set ttimeoutlen=50  " Make Esc work faster
 set wildmenu
