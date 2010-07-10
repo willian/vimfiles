@@ -9,7 +9,10 @@ filetype plugin indent on
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=120 lines=70 number
-  autocmd GuiEnter * colorscheme vividchalk
+  autocmd GuiEnter * colorscheme blackboard
+  "Invisible character colors
+  autocmd GuiEnter * highlight NonText guifg=#4a4a59
+  autocmd GuiEnter * highlight SpecialKey guifg=#4a4a59  
 augroup END
 
 if filereadable(expand('~/.vimrc.local'))
@@ -64,4 +67,3 @@ cab wQ wq
 cab WQ wq
 cab Q  q
 
-" autocmd User Rails setlocal noexpandtab

@@ -64,18 +64,9 @@
 [submodule "bundles/unimpaired"]
 	path = bundles/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundles/vividchalk"]
-	path = bundles/vividchalk
-	url = git://github.com/tpope/vim-vividchalk.git
-[submodule "bundles/irblack"]
-	path = bundles/irblack
-	url = git://github.com/wgibbs/vim-irblack.git
 [submodule "bundles/Command-T"]
 	path = bundles/Command-T
 	url = git://github.com/wincent/Command-T.git
-[submodule "bundles/vim-railscasts-theme/colors"]
-	path = bundles/vim-railscasts-theme/colors
-	url = git://github.com/jpo/vim-railscasts-theme.git
 [submodule "snippets"]
 	path = snippets
 	url = git://github.com/akitaonrails/snipmate-snippets.git
@@ -88,3 +79,6 @@
 [submodule "bundles/rvm"]
 	path = bundles/rvm
 	url = git://github.com/csexton/rvm.vim.git
+[submodule "bundles/vim-blackboard"]
+	path = bundles/vim-blackboard
+	url = git://github.com/bwyrosdick/vim-blackboard.git
