@@ -82,3 +82,6 @@
 [submodule "bundles/vim-blackboard"]
 	path = bundles/vim-blackboard
 	url = git://github.com/bwyrosdick/vim-blackboard.git
+[submodule "bundles/delimitMate"]
+	path = bundles/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
