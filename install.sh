@@ -11,7 +11,7 @@ git submodule update
 
 # Installing pathogen.vim
 if [ ! -d ~/.vim/autoload ]; then
-  mkdir ~/.vim/autoload
+  mkdir -p ~/.vim/autoload
 fi
 ln -sf "${VIMFILES_PATH}/bundles/pathogen/autoload/pathogen.vim" ~/.vim/autoload/pathogen.vim 
 
