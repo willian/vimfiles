@@ -69,3 +69,5 @@ cab wQ wq
 cab WQ wq
 cab Q  q
 
+set backspace=indent,eol,start
+
