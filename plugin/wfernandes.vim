@@ -62,8 +62,44 @@ command! -bar -nargs=* -bang W :write<bang> <args>
 runtime! plugin/matchit.vim
 runtime! macros/matchit.vim
 
-map Y       y$
+" Maps for buffers
 nnoremap <silent> <C-D> :bd<CR><C-D>
+
+" Maps for windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Maps for tabs
+"   for mac users (using the 'apple' key)
+map <D-S-]> gt
+map <D-S-[> gT
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
+"   for linux and windows users (using the control key)
+map <C-S-]> gt
+map <C-S-[> gT
+map <C-1> 1gt
+map <C-2> 2gt
+map <C-3> 3gt
+map <C-4> 4gt
+map <C-5> 5gt
+map <C-6> 6gt
+map <C-7> 7gt
+map <C-8> 8gt
+map <C-9> 9gt
+map <C-0> :tablast<CR>
+
+map Y       y$
 nnoremap <silent> <C-L> :nohls<CR><C-L>
 inoremap <C-C> <Esc>`^
 
@@ -113,13 +149,29 @@ function! s:align()
   endif
 endfunction
 
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
 if !exists('g:syntax_on')
   syntax on
 endif
+
 filetype plugin indent on
 
 augroup wferbandes
   autocmd!
+
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
   autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
         \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
