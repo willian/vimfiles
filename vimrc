@@ -12,7 +12,7 @@ augroup vimrc
   autocmd GuiEnter * colorscheme blackboard
   "Invisible character colors
   autocmd GuiEnter * highlight NonText guifg=#4a4a59
-  autocmd GuiEnter * highlight SpecialKey guifg=#4a4a59  
+  autocmd GuiEnter * highlight SpecialKey guifg=#4a4a59
 augroup END
 
 if filereadable(expand('~/.vimrc.local'))
