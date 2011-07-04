@@ -7,16 +7,15 @@ fi
 ln -sf "${VIMFILES_PATH}/vimrc" ~/.vimrc
 
 # Managing bundles
-mkdir -p bundles
-rm -rf bundles
-mkdir -p bundles
+mkdir -p "${VIMFILES_PATH}/bundles"
 
 get_bundle() {
   (
-  if [ -d "$3" ]; then
-    echo "Updating $1's $2"
-    cd "$3"
+  if [ -d "${VIMFILES_PATH}/$3" ]; then
+    echo "Updating $1's $2 on ${VIMFILES_PATH}/$3"
+    cd "${VIMFILES_PATH}/$3"
     git pull --rebase
+    cd $VIMFILES_PATH
   else
     git clone "git://github.com/$1/$2.git" "$3"
     if [[ "$2" = "git-tmbundle.git" ]]; then
@@ -60,10 +59,14 @@ get_bundle Raimondi delimitMate bundles/delimitMate
 if [ ! -d ~/.vim/autoload ]; then
   mkdir -p ~/.vim/autoload
 fi
-ln -sf "${VIMFILES_PATH}/bundles/pathogen/autoload/pathogen.vim" ~/.vim/autoload/pathogen.vim 
+ln -sf "${VIMFILES_PATH}/bundles/pathogen/autoload/pathogen.vim" ~/.vim/autoload/pathogen.vim
 
 # Installing Command-T plugin
+GEMSET_NAME=`rvm gemset name`
+RUBY_VERSION=`ruby -e "puts RUBY_VERSION"`
+rvm use system
 cd ~/.vim/bundles/Command-T/ruby/command-t && ruby extconf.rb && make
+rvm use $RUBY_VERSION@$GEMSET_NAME
 
 echo "Done!"
 
