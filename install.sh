@@ -25,8 +25,15 @@ get_bundle() {
   )
 }
 
+get_bundle Raimondi delimitMate bundles/delimitMate
+get_bundle akitaonrails snipmate-snippets snippets
+get_bundle akitaonrails snipmate.vim bundles/snipmate
+get_bundle bwyrosdick vim-blackboard bundles/vim-blackboard
+get_bundle csexton rvm.vim bundles/rvm
 get_bundle duff vim-bufonly bundles/bufonly
+get_bundle godlygeek tabular
 get_bundle godlygeek tabular bundles/tabular
+get_bundle itspriddle vim-lesscss bundles/lesscss
 get_bundle leshill vim-json bundles/json
 get_bundle mileszs ack.vim bundles/ack
 get_bundle pangloss vim-javascript bundles/javascript
@@ -48,12 +55,6 @@ get_bundle tpope vim-speeddating bundles/speeddating
 get_bundle tpope vim-surround bundles/surround
 get_bundle tpope vim-unimpaired bundles/unimpaired
 get_bundle wincent Command-T bundles/Command-T
-get_bundle akitaonrails snipmate-snippets snippets
-get_bundle akitaonrails snipmate.vim bundles/snipmate
-get_bundle itspriddle vim-lesscss bundles/lesscss
-get_bundle csexton rvm.vim bundles/rvm
-get_bundle bwyrosdick vim-blackboard bundles/vim-blackboard
-get_bundle Raimondi delimitMate bundles/delimitMate
 
 # Installing pathogen.vim
 if [ ! -d ~/.vim/autoload ]; then
