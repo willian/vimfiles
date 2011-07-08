@@ -31,7 +31,6 @@ get_bundle akitaonrails snipmate.vim bundles/snipmate
 get_bundle bwyrosdick vim-blackboard bundles/vim-blackboard
 get_bundle csexton rvm.vim bundles/rvm
 get_bundle duff vim-bufonly bundles/bufonly
-get_bundle godlygeek tabular
 get_bundle godlygeek tabular bundles/tabular
 get_bundle itspriddle vim-lesscss bundles/lesscss
 get_bundle leshill vim-json bundles/json
@@ -70,4 +69,3 @@ cd ~/.vim/bundles/Command-T/ruby/command-t && ruby extconf.rb && make
 rvm use $RUBY_VERSION@$GEMSET_NAME
 
 echo "Done!"
-

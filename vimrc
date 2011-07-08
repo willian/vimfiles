@@ -5,10 +5,11 @@ endif
 
 syntax on
 filetype plugin indent on
+set number
 
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=120 lines=70 number
+  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=120 lines=70
   autocmd GuiEnter * colorscheme blackboard
   "Invisible character colors
   autocmd GuiEnter * highlight NonText guifg=#4a4a59
