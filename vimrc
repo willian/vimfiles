@@ -9,7 +9,7 @@ set number
 
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=120 lines=70
+  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=175 lines=70 colorcolumn=85
   autocmd GuiEnter * colorscheme blackboard
   "Invisible character colors
   autocmd GuiEnter * highlight NonText guifg=#4a4a59
