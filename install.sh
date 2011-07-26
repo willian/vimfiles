@@ -8,6 +8,7 @@ ln -sf "${VIMFILES_PATH}/vimrc" ~/.vimrc
 
 # Managing bundles
 mkdir -p "${VIMFILES_PATH}/bundles"
+rm -rf "${VIMFILES_PATH}/bundles/Command-T"
 
 get_bundle() {
   (
