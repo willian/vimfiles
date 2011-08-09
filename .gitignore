@@ -1,3 +1,2 @@
-autoload
-bundles
-snippets
+.netrwhist
+custom/configs.vim

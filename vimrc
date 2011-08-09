@@ -1,74 +1,116 @@
+augroup vimrc
+  autocmd!
+  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T
+augroup END
+
+" ****************************************************************
+" USING PATHOGEM TO ORGANIZE MY VIM PLUGINS
+" ****************************************************************
 runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
   call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
 endif
 
-syntax on
+
+" ****************************************************************
+" INCLUDES
+" ****************************************************************
+source ~/.vim/custom/settings.vim
+source ~/.vim/custom/useful_mappings.vim
+
+
+" ****************************************************************
+" COLORS AND SYNTAX
+" ****************************************************************
+colorscheme BusyBee
 filetype plugin indent on
-set number
+syntax on               " Enable syntax highlighting
 
-augroup vimrc
-  autocmd!
-  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=203 lines=70
-  autocmd GuiEnter * colorscheme blackboard
-  "Invisible character colors
-  autocmd GuiEnter * highlight NonText guifg=#4a4a59
-  autocmd GuiEnter * highlight SpecialKey guifg=#4a4a59
-augroup END
+" Search Options
+hi    Search ctermbg=green ctermfg=black
+hi IncSearch ctermbg=black ctermfg=green
 
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TABs size
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set ts=2
-" set bs=2
-" set sts=2
-set ts=2 sts=2 sw=2
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader character
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader = ","
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabs for some file types
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ****************************************************************
+" LANGUAGUE INDENT CONFIGURATION
+" ****************************************************************
 autocmd FileType make       set noexpandtab
-autocmd FileType html       set noexpandtab
-autocmd FileType htmldjango set noexpandtab
-autocmd FileType eruby      set noexpandtab
-autocmd FileType xml        set noexpandtab
-autocmd FileType javascript set noexpandtab
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Removing ane extra whitespaces from the ends of lines
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWritePre *.py        normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.pt        normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.rb        normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.js        normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.js.erb    normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.css       normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.html      normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.html.erb  normal m`:%s/\s\+$//e ``
-autocmd BufWritePre *.yml       normal m`:%s/\s\+$//e ``
+autocmd FileType css        call UseTabs()
+autocmd FileType eruby      call UseTabs()
+autocmd FileType html       call UseTabs()
+autocmd FileType htmldjango call UseTabs()
+autocmd FileType javascript call UseTabs()
+autocmd FileType sh         call UseTabs()
+autocmd FileType xml        call UseTabs()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Encoding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set encoding=utf-8
+autocmd FileType cucumber   set expandtab sw=2 ts=2 sts=2
+autocmd FileType python     set expandtab sw=4 ts=4 sts=4
+autocmd FileType ruby       set expandtab sw=2 ts=2 sts=2
+autocmd FileType tex        set expandtab tw=71
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shortcuts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-cab W  w
-cab Wq wq
-cab wQ wq
-cab WQ wq
-cab Q  q
 
-set backspace=indent,eol,start
+" ****************************************************************
+" TRAILING SPACE REMOVER
+" ****************************************************************
+autocmd BufWritePre * :%s/\s\+$//e
 
+
+" ****************************************************************
+" TEMPLATES
+" ****************************************************************
+" HTML: When a new .html is opened, it will come with a skeleton pre-designed
+au BufNewFile *.html read ~/.vim/templates/html/skeleton.html
+
+
+" ****************************************************************
+" USEFUL VIM CONFS
+" ****************************************************************
+" Store cursor position and command history
+set viminfo='10,\"30,:40,%,n~/.viminfo
+au BufReadPost * if line("'\"")|execute("normal `\"")|endif
+
+
+" ****************************************************************
+" SPECIFIC FUNCTIONS
+" ****************************************************************
+"define :Lorem command to dump in a paragraph of lorem ipsum
+command! -nargs=0 Lorem :normal iLorem ipsum dolor sit amet, consectetur
+      \ adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      \ magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      \ ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      \ irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      \ fugiat nulla pariatur.  Excepteur sint occaecat cupidatat non
+      \ proident, sunt in culpa qui officia deserunt mollit anim id est
+      \ laborum
+
+
+let g:browser = 'firefox -new-tab '
+
+" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
+function! OpenRubyDoc(keyword)
+  let url = 'http://apidock.com/ruby/'.a:keyword
+  exec '!'.g:browser.' '.url.' &'
+endfunction
+noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
+
+
+" Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
+function! OpenRailsDoc(keyword)
+  let url = 'http://apidock.com/rails/'.a:keyword
+  exec '!'.g:browser.' '.url.' &'
+endfunction
+noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
+
+
+" Run the current spec file with spec command
+function! RunCurrentSpec(spec)
+   exec '!rspec '.a:spec
+endfunction
+map <F7> :call RunCurrentSpec(bufname("%"))<cr>
+
+
+function! UseTabs()
+  set noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
+  autocmd User Rails set softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+endfunction
