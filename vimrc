@@ -1,6 +1,6 @@
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T
+  autocmd GuiEnter * set guifont=Monaco:h12 guioptions-=T columns=203 lines=70
 augroup END
 
 " ****************************************************************
