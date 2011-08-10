@@ -51,3 +51,13 @@ set nofoldenable                    " I don't want it folding by default
 set notitle                         " Removing 'Thanks for flying Vim' :)
 set novisualbell                    " No blinking .
 set nowrap                          " Line wrapping off
+
+
+" ****************************************************
+" Adding custom commands to rails.vim
+" ****************************************************
+autocmd User Rails Rnavcommand blueprint spec/blueprints -suffix=_blueprint.rb -default=model()
+autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
+autocmd User Rails Rnavcommand seeds db/ -default=seeds
+autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
+autocmd User Rails Rnavcommand uploader app/uploaders -suffix=_uploader.rb -default=model()
