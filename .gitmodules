@@ -22,9 +22,6 @@
 [submodule "bundles/surround"]
 	path = bundles/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundles/vimpress"]
-	path = bundles/vimpress
-	url = git://github.com/PotHix/Vimpress.git
 [submodule "bundles/vim-rake"]
 	path = bundles/vim-rake
 	url = git://github.com/tpope/vim-rake.git

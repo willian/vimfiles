@@ -11,13 +11,11 @@ if exists('g:loaded_pathogen')
   call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
 endif
 
-
 " ****************************************************************
 " INCLUDES
 " ****************************************************************
 source ~/.vim/custom/settings.vim
 source ~/.vim/custom/useful_mappings.vim
-
 
 " ****************************************************************
 " COLORS AND SYNTAX
@@ -29,7 +27,6 @@ syntax on               " Enable syntax highlighting
 " Search Options
 hi    Search ctermbg=green ctermfg=black
 hi IncSearch ctermbg=black ctermfg=green
-
 
 " ****************************************************************
 " LANGUAGUE INDENT CONFIGURATION
@@ -48,13 +45,12 @@ autocmd FileType cucumber   set expandtab sw=2 ts=2 sts=2
 autocmd FileType python     set expandtab sw=4 ts=4 sts=4
 autocmd FileType ruby       set expandtab sw=2 ts=2 sts=2
 autocmd FileType tex        set expandtab tw=71
-
+autocmd FileType vim        set expandtab sw=2 ts=2 sts=2 keywordprg=:help
 
 " ****************************************************************
 " TRAILING SPACE REMOVER
 " ****************************************************************
 autocmd BufWritePre * :%s/\s\+$//e
-
 
 " ****************************************************************
 " TEMPLATES
@@ -62,14 +58,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 " HTML: When a new .html is opened, it will come with a skeleton pre-designed
 au BufNewFile *.html read ~/.vim/templates/html/skeleton.html
 
-
 " ****************************************************************
 " USEFUL VIM CONFS
 " ****************************************************************
 " Store cursor position and command history
 set viminfo='10,\"30,:40,%,n~/.viminfo
 au BufReadPost * if line("'\"")|execute("normal `\"")|endif
-
 
 " ****************************************************************
 " SPECIFIC FUNCTIONS
@@ -83,9 +77,6 @@ command! -nargs=0 Lorem :normal iLorem ipsum dolor sit amet, consectetur
       \ fugiat nulla pariatur.  Excepteur sint occaecat cupidatat non
       \ proident, sunt in culpa qui officia deserunt mollit anim id est
       \ laborum
-
-
-let g:browser = 'firefox -new-tab '
 
 " Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
 function! OpenRubyDoc(keyword)

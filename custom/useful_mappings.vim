@@ -56,7 +56,6 @@ map L $
 "make Y consistent with C and D
 nnoremap Y y$
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype changings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,27 +67,23 @@ nmap <leader>fr :set filetype=ruby<CR>
 nmap <leader>fs :set filetype=sass<CR>
 nmap <leader>fy :set filetype=yaml<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maps for plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Open Spec on a vertical Split using RailsVim
 nnoremap <F4> :AV<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other shortcuts using F1-F12 keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enabling spelling to Brazillian Portuguese
+" Enabling spelling to Brazilian Portuguese
 nmap <F8> :setlocal spell spelllang=pt<CR>
 nmap <F9> :setlocal spell spelllang=en<CR>
 
 " Tabular
-if exists(":Tabularize")
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a> :Tabularize /=><CR>
-  vmap <Leader>a> :Tabularize /=><CR>
-endif
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a> :Tabularize /=><CR>
+vmap <leader>a> :Tabularize /=><CR>
