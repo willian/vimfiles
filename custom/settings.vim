@@ -60,3 +60,11 @@ autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -defau
 autocmd User Rails Rnavcommand seeds db/ -default=seeds
 autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
 autocmd User Rails Rnavcommand uploader app/uploaders -suffix=_uploader.rb -default=model()
+
+" ****************************************************
+" Adding custom settings to NERDCommenter
+" ****************************************************
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDShutUp = 1
+let g:VCSCommandDisableMappings = 1
