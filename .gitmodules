@@ -52,3 +52,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = git://github.com/akitaonrails/snipmate-snippets.git
+[submodule "bundles/delimitMate"]
+	path = bundles/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
