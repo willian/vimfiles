@@ -55,6 +55,8 @@ set nowrap                          " Line wrapping off
 " ****************************************************
 " Adding custom commands to rails.vim
 " ****************************************************
+autocmd User Rails if &filetype != 'ruby' | setlocal noexpandtab | endif
+autocmd User Rails if &filetype == 'yaml' | setlocal sw=2 sts=2 expandtab | endif
 autocmd User Rails Rnavcommand blueprint spec/blueprints -suffix=_blueprint.rb -default=model()
 autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
 autocmd User Rails Rnavcommand seeds db/ -default=seeds

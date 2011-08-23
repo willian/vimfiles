@@ -31,21 +31,33 @@ hi IncSearch ctermbg=black ctermfg=green
 " ****************************************************************
 " LANGUAGUE INDENT CONFIGURATION
 " ****************************************************************
-autocmd FileType make       set noexpandtab
+autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
+      \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
 
-autocmd FileType css        call UseTabs()
-autocmd FileType eruby      call UseTabs()
-autocmd FileType html       call UseTabs()
-autocmd FileType htmldjango call UseTabs()
-autocmd FileType javascript call UseTabs()
-autocmd FileType sh         call UseTabs()
-autocmd FileType xml        call UseTabs()
+autocmd BufNewFile,BufRead *.haml             set ft=haml
+autocmd BufNewFile,BufRead *.feature,*.story  set ft=cucumber
+autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
+      \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
 
-autocmd FileType cucumber   set expandtab sw=2 ts=2 sts=2
-autocmd FileType python     set expandtab sw=4 ts=4 sts=4
-autocmd FileType ruby       set expandtab sw=2 ts=2 sts=2
-autocmd FileType tex        set expandtab tw=71
-autocmd FileType vim        set expandtab sw=2 ts=2 sts=2 keywordprg=:help
+" autocmd FileType javascript             setlocal noexpandtab sw=2 sts=2 isk+=$
+" autocmd FileType html,xhtml,css         setlocal noexpandtab sw=2 sts=2
+autocmd FileType eruby,yaml,ruby setlocal et sw=2 sts=2
+autocmd FileType cucumber        setlocal et sw=2 sts=2
+autocmd FileType gitcommit       setlocal spell
+autocmd FileType ruby            setlocal comments=:#\  tw=79
+autocmd FileType vim             setlocal et sw=2 sts=2 keywordprg=:help
+
+autocmd Syntax   css  syn sync minlines=50
+
+autocmd User Rails if &filetype != 'ruby' | setlocal noexpandtab | endif
+autocmd User Rails if &filetype == 'yaml' | setlocal sw=2 sts=2 expandtab | endif
+autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
+autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
+autocmd User Rails Rnavcommand blueprint spec/blueprints -suffix=_blueprint.rb -default=model()
+autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
+autocmd User Rails Rnavcommand seeds db/ -default=seeds
+autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
+autocmd User Rails Rnavcommand uploader app/uploaders -suffix=_uploader.rb -default=model()
 
 " ****************************************************************
 " TRAILING SPACE REMOVER
@@ -99,9 +111,3 @@ function! RunCurrentSpec(spec)
    exec '!rspec '.a:spec
 endfunction
 map <F7> :call RunCurrentSpec(bufname("%"))<cr>
-
-
-function! UseTabs()
-  set noexpandtab softtabstop=4 shiftwidth=4 tabstop=4
-  autocmd User Rails set softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
-endfunction
