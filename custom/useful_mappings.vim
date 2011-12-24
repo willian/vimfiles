@@ -29,10 +29,6 @@ nmap <leader>p :put<CR>==
 " Mapping <tab> to chage tabs on commands mode
 nmap <tab> :tabnext<CR>
 
-" Increment and decrement numbers using UP and DOWN arrows
-nmap <up> <C-a>
-nmap <down> <C-x>
-
 " Make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
@@ -87,3 +83,5 @@ nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a> :Tabularize /=><CR>
 vmap <leader>a> :Tabularize /=><CR>
+nmap <leader>a, :Tabularize /,<CR>
+vmap <leader>a, :Tabularize /,<CR>
