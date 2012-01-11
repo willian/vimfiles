@@ -20,7 +20,7 @@ source ~/.vim/custom/useful_mappings.vim
 " ****************************************************************
 " COLORS AND SYNTAX
 " ****************************************************************
-colorscheme BusyBee
+colorscheme sunburst
 filetype plugin indent on
 syntax on               " Enable syntax highlighting
 
