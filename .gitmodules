@@ -49,3 +49,15 @@
 [submodule "bundles/delimitMate"]
 	path = bundles/delimitMate
 	url = git://github.com/Raimondi/delimitMate.git
+[submodule "bundles/snipmate"]
+	path = bundles/snipmate
+	url = git://github.com/garbas/vim-snipmate.git
+[submodule "bundles/snipmate-snippets"]
+	path = bundles/snipmate-snippets
+	url = https://github.com/honza/snipmate-snippets.git
+[submodule "bundles/tlib_vim"]
+	path = bundles/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
+[submodule "bundles/vim-addon-mw-utils"]
+	path = bundles/vim-addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
