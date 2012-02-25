@@ -2,6 +2,7 @@ CURRENT_PATH=`pwd`
 
 git submodule init
 git submodule update
+git submodule foreach git pull origin master
 
 if [ -d $HOME/.vim ]; then
   rm -rf $HOME/.vim
