@@ -61,3 +61,9 @@
 [submodule "bundles/vim-addon-mw-utils"]
 	path = bundles/vim-addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundles/crtlp"]
+	path = bundles/crtlp
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "bundles/sparkup"]
+	path = bundles/sparkup
+	url = git://github.com/rstacruz/sparkup.git
