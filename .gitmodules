@@ -67,3 +67,9 @@
 [submodule "bundles/sparkup"]
 	path = bundles/sparkup
 	url = git://github.com/rstacruz/sparkup.git
+[submodule "bundles/syntastic"]
+	path = bundles/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundles/EasyGrep"]
+	path = bundles/EasyGrep
+	url = git://github.com/vim-scripts/EasyGrep.git
