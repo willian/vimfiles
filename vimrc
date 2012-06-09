@@ -20,8 +20,8 @@ source ~/.vim/custom/useful_mappings.vim
 " ****************************************************************
 " COLORS AND SYNTAX
 " ****************************************************************
-" colorscheme sunburst
-colorscheme ir_black
+" colorscheme ir_black
+colorscheme molokai
 filetype plugin indent on
 syntax on               " Enable syntax highlighting
 
