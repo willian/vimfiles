@@ -73,3 +73,6 @@
 [submodule "bundles/EasyGrep"]
 	path = bundles/EasyGrep
 	url = git://github.com/vim-scripts/EasyGrep.git
+[submodule "bundles/puppet"]
+	path = bundles/puppet
+	url = git://github.com/rodjek/vim-puppet.git
