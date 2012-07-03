@@ -4,12 +4,13 @@ git submodule init
 git submodule update
 git submodule foreach git pull origin master
 
-if [ -d $HOME/.vim ]; then
-  rm -rf $HOME/.vim
-fi
-
 # Linking
+rm -f $HOME/.vimrc
+rm -f $HOME/.vim
 ln -sf $CURRENT_PATH/vimrc $HOME/.vimrc
 ln -sf $CURRENT_PATH $HOME/.vim
 
+vim -c 'call pathogen#helptags()|q'
+
 echo "Vim           [OK]"
+
