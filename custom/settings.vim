@@ -68,6 +68,7 @@ autocmd User Rails Rnavcommand seeds db/ -default=seeds
 autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
 autocmd User Rails Rnavcommand uploader app/uploaders -suffix=_uploader.rb -default=model()
 autocmd User Rails Rnavcommand admin app/admin -default=model()
+autocmd User Rails Rnavcommand presenter app/presenters -default=model()
 
 " ****************************************************
 " Adding custom settings to NERDCommenter
