@@ -35,6 +35,7 @@ hi IncSearch ctermbg=black ctermfg=green
 autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
       \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
 
+autocmd BufNewFile,BufRead Gemfile*           set ft=ruby
 autocmd BufNewFile,BufRead *.haml             set ft=haml
 autocmd BufNewFile,BufRead *.feature,*.story  set ft=cucumber
 autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
