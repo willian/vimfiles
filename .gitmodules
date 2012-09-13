@@ -64,3 +64,6 @@
 [submodule "bundles/vim-matchit"]
 	path = bundles/vim-matchit
 	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "bundles/tlib_vim"]
+	path = bundles/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
