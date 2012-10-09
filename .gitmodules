@@ -1,6 +1,3 @@
-[submodule "bundles/EasyGrep"]
-	path = bundles/EasyGrep
-	url = git://github.com/vim-scripts/EasyGrep.git
 [submodule "bundles/vim-addon-mw-utils"]
 	path = bundles/vim-addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
@@ -67,3 +64,6 @@
 [submodule "bundles/tlib_vim"]
 	path = bundles/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
+[submodule "bundles/ack.vim"]
+	path = bundles/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
