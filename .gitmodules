@@ -67,3 +67,6 @@
 [submodule "bundles/ack.vim"]
 	path = bundles/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundles/CSApprox"]
+	path = bundles/CSApprox
+	url = git://github.com/godlygeek/csapprox.git
