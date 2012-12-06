@@ -2,6 +2,11 @@
 " Some configurations with let
 " ****************************************************
 let mapleader = ","
+"
+" ****************************************************
+" Shares the clipboard with OS X
+" ****************************************************
+set clipboard=unnamed
 
 " ****************************************************
 " Removing some default confs
@@ -27,6 +32,12 @@ set listchars=tab:\ \ ,extends:>,precedes:<     " Special chars to show tabs, eo
 set number                                      " Line numbers on
 set wildmenu                                    " Enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=list:longest                       " Make cmdline tab completion similar to bash
-set wildignore+=*.o,*~,*.swp,*.pyc,*.pyo,*.gif  " Stuff to ignore when tab completing
-set wildignore+=*.dll,*.obj,*.bak,*.jpg,*.png   " Stuff to ignore when tab completing
+set wildignore+=*.o,*~,*.swp,*.pyc,*.pyo        " Stuff to ignore when tab completing
+set wildignore+=*.dll,*.obj,*.bak               " Stuff to ignore when tab completing
+set wildignore+=.git,*.rbc,*.class,.svn         " Stuff to ignore when tab completing
+set wildignore+=vendor/**,db/sphinx,log/**      " Stuff to ignore when tab completing
+set wildignore+=tmp/**,public/uploads           " Stuff to ignore when tab completing
+set wildignore+=coverage/**                     " Stuff to ignore when tab completing
+set wildignore+=*.gif,*.jpg,*.png,*.jpeg        " Stuff to ignore when tab completing
+set wildignore+=*.eot,*.svg,*.ttf,*.woff        " Stuff to ignore when tab completing
 
