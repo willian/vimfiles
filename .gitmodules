@@ -13,6 +13,9 @@
 [submodule "bundle/NERDcommenter"]
 	path = bundle/NERDcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/NERDtree"]
+	path = bundle/NERDtree
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule "bundle/snipmate-snippets"]
 	path = bundle/snipmate-snippets
 	url = git://github.com/honza/snipmate-snippets.git

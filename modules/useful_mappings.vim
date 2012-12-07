@@ -21,6 +21,9 @@ map <leader># :s/^/# /<CR>:nohls<CR>
 " Remove trailing spaces
 nmap <leader>rt :%s/\s\+$//<CR><C-L>
 
+" Open and close the tree files
+nmap <silent> <leader>p :NERDTreeToggle<CR>
+
 " Mapping <tab> to chage tabs on commands mode
 nmap <tab> :tabnext<CR>
 
