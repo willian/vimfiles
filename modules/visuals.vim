@@ -9,7 +9,7 @@ augroup END
 " ****************************************************************
 " COLORS AND SYNTAX
 " ****************************************************************
-colorscheme Tomorrow-Night-Bright
+colorscheme molokai
 filetype plugin indent on
 syntax on
 
