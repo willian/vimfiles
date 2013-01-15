@@ -3,13 +3,13 @@
 " ****************************************************************
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Menlo:h18 guioptions-=T columns=203 lines=70
+  autocmd GuiEnter * set guifont=Menlo:h14 guioptions-=T columns=203 lines=70
 augroup END
 
 " ****************************************************************
 " COLORS AND SYNTAX
 " ****************************************************************
-colorscheme molokai
+colorscheme envylabs
 filetype plugin indent on
 syntax on
 
