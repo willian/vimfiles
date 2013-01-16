@@ -45,12 +45,17 @@ hi Todo        guifg=#FFFFFF guibg=bg gui=bold
 hi Constant    guifg=#AE81FF          gui=none
 hi String      guifg=#7BB678          gui=none
 hi Identifier  guifg=#FD971F          gui=none
-hi Function    guifg=#F8F8F2          gui=none
+hi Function    guifg=#AE81FF          gui=none
 hi Type        guifg=#BC92CA          gui=none
 hi Statement   guifg=#92B6E6          gui=none
 hi Keyword     guifg=#92B6E6          gui=none
 hi PreProc     guifg=#92B6E6          gui=none
 hi Number      guifg=#5BAFA0          gui=none
+hi Foat        guifg=#5BAFA0          gui=none
 hi Special     guifg=#D3C6A5 guibg=bg gui=italic
 hi Conditional guifg=#92B6E6          gui=none
+
+" Python
+hi pythonDecorator guifg=#FD971F guibg=NONE gui=NONE
+hi link pythonDecoratorFunction pythonDecorator
 
