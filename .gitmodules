@@ -67,6 +67,12 @@
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/vim-sensible"]
+	path = bundle/vim-sensible
+	url = git://github.com/tpope/vim-sensible.git
+[submodule "bundle/vim-sleuth"]
+	path = bundle/vim-sleuth
+	url = git://github.com/tpope/vim-sleuth.git
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = git://github.com/garbas/vim-snipmate.git
