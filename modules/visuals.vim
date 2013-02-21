@@ -9,6 +9,7 @@ augroup END
 " ****************************************************************
 " COLORS AND SYNTAX
 " ****************************************************************
+set background=light
 colorscheme envylabs
 filetype plugin indent on
 syntax on
