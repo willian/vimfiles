@@ -1,12 +1,7 @@
 " ****************************************************************
-" USING PATHOGEM TO ORGANIZE MY VIM PLUGINS
-" ****************************************************************
-silent! call pathogen#runtime_append_all_bundles()
-silent! call pathogen#helptags()
-
-" ****************************************************************
 " MODULES
 " ****************************************************************
+source ~/.vim/modules/plugins.vim
 source ~/.vim/modules/visuals.vim
 source ~/.vim/modules/file_types.vim
 source ~/.vim/modules/indentations.vim

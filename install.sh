@@ -1,15 +1,12 @@
 CURRENT_PATH=`pwd`
 
-git submodule init
-git submodule update
-
 # Linking
 rm -f $HOME/.vimrc
 rm -f $HOME/.vim
 ln -sf $CURRENT_PATH/vimrc $HOME/.vimrc
 ln -sf $CURRENT_PATH $HOME/.vim
 
-vim -c 'call pathogen#helptags()|q'
+vim +BundleInstall! +qall
 
 echo "Vim           [OK]"
 
