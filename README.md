@@ -1,4 +1,4 @@
-# Vimfile
+# Vimfiles
 
 ## Installation
 
