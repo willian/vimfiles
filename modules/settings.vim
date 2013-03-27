@@ -25,6 +25,7 @@ set bs=2                                        " Backspace over everything in i
 set cursorline                                  " Setting a line over cursor
 set copyindent                                  " Copy previous indent on the current line
 set encoding=utf-8                              " Default encoding is utf8
+set grepprg=ack                                 " Use Ack instead of grep
 set hidden                                      " Don't close buffers, just hidden them
 set laststatus=2                                " Always show status line.
 set list                                        " Configuration to use definitions below
