@@ -42,3 +42,19 @@ set wildignore+=coverage/**                     " Stuff to ignore when tab compl
 set wildignore+=*.gif,*.jpg,*.png,*.jpeg        " Stuff to ignore when tab completing
 set wildignore+=*.eot,*.svg,*.ttf,*.woff        " Stuff to ignore when tab completing
 
+" ****************************************************
+" Disable arrow keys
+" ****************************************************
+
+" In normal mode
+noremap  <Up> ""
+noremap  <Down> ""
+noremap  <Left> ""
+noremap  <Right> ""
+
+" In insert mode
+" noremap! <Up> <Esc>
+" noremap! <Down> <Esc>
+" noremap! <Left> <Esc>
+" noremap! <Right> <Esc>
+
