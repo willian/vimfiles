@@ -29,9 +29,9 @@ function! RunTests(filename)
     if filereadable("script/test")
       exec ":!script/test " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
+      exec ":!bundle exec rspec " . a:filename
     else
-      exec ":!rspec --color " . a:filename
+      exec ":!rspec " . a:filename
     end
   end
 endfunction
@@ -63,7 +63,7 @@ function! RunTestFileNoRails()
   if in_test_file
     call SetTestFile()
     :w
-    exec ":!rspec --color " . t:grb_test_file
+    exec ":!rspec " . t:grb_test_file
   end
 endfunction
 
