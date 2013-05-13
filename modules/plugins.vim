@@ -7,6 +7,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'Raimondi/delimitMate'
+Bundle 'claco/jasmine.vim'
 Bundle 'duff/vim-bufonly'
 Bundle 'garbas/vim-snipmate'
 Bundle 'godlygeek/csapprox'
