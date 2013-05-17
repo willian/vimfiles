@@ -15,4 +15,4 @@ source ~/.vim/modules/rspec_settings.vim
 source ~/.vim/modules/search_settings.vim
 source ~/.vim/modules/tabularize_settings.vim
 source ~/.vim/modules/ctrlp_settings.vim
-
+source ~/.vim/modules/javascript_settings.vim
