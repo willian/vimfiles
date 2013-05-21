@@ -5,6 +5,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'FredKSchott/CoVim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'Raimondi/delimitMate'
 Bundle 'claco/jasmine.vim'
