@@ -23,15 +23,30 @@ function! RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  if match(a:filename, '\.feature$') != -1
-    exec ":!script/features " . a:filename
-  else
-    if filereadable("script/test")
-      exec ":!script/test " . a:filename
-    elseif filereadable("Gemfile")
-      exec ":!bundle exec rspec " . a:filename
+
+  if executable("xvfb-run")
+    if match(a:filename, '\.feature$') != -1
+      exec ":!xvfb-run script/features " . a:filename
     else
-      exec ":!rspec " . a:filename
+      if filereadable("script/test")
+        exec ":!xvfb-run script/test " . a:filename
+      elseif filereadable("Gemfile")
+        exec ":!xvfb-run bundle exec rspec " . a:filename
+      else
+        exec ":!xvfb-run rspec " . a:filename
+      end
+    end
+  else
+    if match(a:filename, '\.feature$') != -1
+      exec ":!script/features " . a:filename
+    else
+      if filereadable("script/test")
+        exec ":!script/test " . a:filename
+      elseif filereadable("Gemfile")
+        exec ":!bundle exec rspec " . a:filename
+      else
+        exec ":!rspec " . a:filename
+      end
     end
   end
 endfunction
