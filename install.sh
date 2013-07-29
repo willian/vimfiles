@@ -16,5 +16,18 @@ else
   mkdir -p ~/.local/share/vim/{swap,backup,undo}
 fi
 
+if [[ -f /etc/debian_version ]]; then
+  sudo apt-get install -y python-twisted
+else
+  echo ""
+  echo "You are running outside a Debian/Ubuntu machine"
+  echo "and you need to install Python Twisted lib."
+  echo ""
+  echo "You can try it: pip install twisted"
+  echo "or visit: http://twistedmatrix.com/trac/wiki/Downloads#MacOSX"
+  echo ""
+  echo ""
+fi
+
 echo "Vim           [OK]"
 
