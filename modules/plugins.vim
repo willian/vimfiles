@@ -24,6 +24,7 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'slim-template/vim-slim'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
@@ -40,4 +41,3 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'willian/envylabs.vim'
 
 filetype plugin indent on
-
