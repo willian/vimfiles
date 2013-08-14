@@ -11,7 +11,7 @@ source ~/.vim/modules/useful_mappings.vim
 source ~/.vim/modules/settings.vim
 source ~/.vim/modules/nerdcommenter_settings.vim
 source ~/.vim/modules/rails_settings.vim
-source ~/.vim/modules/rspec_settings.vim
+source ~/.vim/modules/ruby_test_settings.vim
 source ~/.vim/modules/search_settings.vim
 source ~/.vim/modules/tabularize_settings.vim
 source ~/.vim/modules/ctrlp_settings.vim
