@@ -6,3 +6,5 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 
+" Set wildcard ignore for ctrlp and ack/ag
+set wildignore+=*/tmp/*,vendor/bundle/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif,.gitkeep

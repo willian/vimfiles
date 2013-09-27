@@ -1,7 +1,7 @@
 " ****************************************************
 " Some configurations with let
 " ****************************************************
-let mapleader = ","
+let mapleader = "\\"
 "
 " ****************************************************
 " Shares the clipboard with OS X
@@ -29,8 +29,9 @@ set grepprg=ack                                 " Use Ack instead of grep
 set hidden                                      " Don't close buffers, just hidden them
 set laststatus=2                                " Always show status line.
 set list                                        " Configuration to use definitions below
-set listchars=tab:\ \ ,extends:>,precedes:<     " Special chars to show tabs, eol and bol
-set number                                      " Line numbers on
+set listchars=extends:>,precedes:<              " Special chars to show tabs, eol and bol
+set listchars+=trail:.,tab:>-,eol:¬             " Special chars to show tabs, eol and bol
+set relativenumber                              " Show line numbers relative to each other"
 set wildmenu                                    " Enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=list:longest                       " Make cmdline tab completion similar to bash
 set wildignore+=*.o,*~,*.swp,*.pyc,*.pyo        " Stuff to ignore when tab completing
@@ -41,20 +42,24 @@ set wildignore+=tmp/**,public/uploads           " Stuff to ignore when tab compl
 set wildignore+=coverage/**                     " Stuff to ignore when tab completing
 set wildignore+=*.gif,*.jpg,*.png,*.jpeg        " Stuff to ignore when tab completing
 set wildignore+=*.eot,*.svg,*.ttf,*.woff        " Stuff to ignore when tab completing
+set noswapfile                                  " Don't create annoying *.swp files"
 
 " ****************************************************
 " Disable arrow keys
 " ****************************************************
-
-" In normal mode
-noremap  <Up> ""
-noremap  <Down> ""
-noremap  <Left> ""
-noremap  <Right> ""
-
-" In insert mode
-" noremap! <Up> <Esc>
-" noremap! <Down> <Esc>
-" noremap! <Left> <Esc>
-" noremap! <Right> <Esc>
-
+inoremap <Up>      <Nop>
+inoremap <Down>    <Nop>
+inoremap <Left>    <Nop>
+inoremap <Right>   <Nop>
+inoremap <M-Up>    <Nop>
+inoremap <M-Down>  <Nop>
+inoremap <M-Left>  <Nop>
+inoremap <M-Right> <Nop>
+noremap  <Up>      <Esc>
+noremap  <Down>    <Esc>
+noremap  <Left>    <Esc>
+noremap  <Right>   <Esc>
+vmap     <Up>      <Esc><Esc>gv
+vmap     <Down>    <Esc><Esc>gv
+vmap     <Left>    <Esc><Esc>gv
+vmap     <Right>   <Esc><Esc>gv

@@ -69,3 +69,12 @@ nnoremap <F4> :AV<CR>
 nmap <F8> :setlocal spell spelllang=pt<CR>
 nmap <F9> :setlocal spell spelllang=en<CR>
 
+" Window Navigation
+" Use ctrl+(h|j|k|j) to move through open windows.
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Ack with <leader>f
+map <Leader>f :Ack!<Space>
