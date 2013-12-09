@@ -63,3 +63,8 @@ vmap     <Up>      <Esc><Esc>gv
 vmap     <Down>    <Esc><Esc>gv
 vmap     <Left>    <Esc><Esc>gv
 vmap     <Right>   <Esc><Esc>gv
+
+" ****************************************************
+" Clear highlighted searches
+" ****************************************************
+nmap <silent> <leader>/ :nohlsearch<CR>
