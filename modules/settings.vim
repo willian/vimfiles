@@ -22,8 +22,9 @@ set nowrap                          " Line wrapping off
 " My set configurations
 " ****************************************************
 set bs=2                                        " Backspace over everything in insert mode
-set cursorline                                  " Setting a line over cursor
+set colorcolumn=81                              " Show a vertical bar to help keep lines with 80 characters
 set copyindent                                  " Copy previous indent on the current line
+set cursorline                                  " Setting a line over cursor
 set encoding=utf-8                              " Default encoding is utf8
 set grepprg=ack                                 " Use Ack instead of grep
 set hidden                                      " Don't close buffers, just hidden them
