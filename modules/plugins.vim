@@ -41,6 +41,5 @@ Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'willian/envylabs.vim'
 
 filetype plugin indent on
