@@ -110,21 +110,27 @@ function! MINITEST_RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
 
+  if !empty(a:filename)
+    let l:filetotest = "TEST=" . a:filename
+  else
+    let l:filetotest = ""
+  end
+
   if executable("xvfb-run")
     if filereadable("script/test")
       exec ":!xvfb-run script/test " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!xvfb-run bundle exec rake test:all:quick TEST=" . a:filename
+      exec ":!xvfb-run bundle exec rake test:all:quick " . l:filetotest
     else
-      exec ":!xvfb-run rake test:all TEST=" . a:filename
+      exec ":!xvfb-run rake test:all " . l:filetotest
     end
   else
     if filereadable("script/test")
       exec ":!script/test " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!bundle exec rake test:all TEST=" . a:filename
+      exec ":!bundle exec rake test:all ". l:filetotest
     else
-      exec ":!rake test:all TEST=" . a:filename
+      exec ":!rake test:all ". l:filetotest
     end
   end
 endfunction
