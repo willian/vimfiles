@@ -114,17 +114,17 @@ function! MINITEST_RunTests(filename)
     if filereadable("script/test")
       exec ":!xvfb-run script/test " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!xvfb-run bundle exec rake minitest:all:quick TEST=" . a:filename
+      exec ":!xvfb-run bundle exec rake test:all:quick TEST=" . a:filename
     else
-      exec ":!xvfb-run rake minitest:all:quick TEST=" . a:filename
+      exec ":!xvfb-run rake test:all TEST=" . a:filename
     end
   else
     if filereadable("script/test")
       exec ":!script/test " . a:filename
     elseif filereadable("Gemfile")
-      exec ":!bundle exec rake minitest:all:quick TEST=" . a:filename
+      exec ":!bundle exec rake test:all TEST=" . a:filename
     else
-      exec ":!rake minitest:all:quick TEST=" . a:filename
+      exec ":!rake test:all TEST=" . a:filename
     end
   end
 endfunction
