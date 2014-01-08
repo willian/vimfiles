@@ -43,6 +43,7 @@ set wildignore+=tmp/**,public/uploads           " Stuff to ignore when tab compl
 set wildignore+=coverage/**                     " Stuff to ignore when tab completing
 set wildignore+=*.gif,*.jpg,*.png,*.jpeg        " Stuff to ignore when tab completing
 set wildignore+=*.eot,*.svg,*.ttf,*.woff        " Stuff to ignore when tab completing
+set wildignore+=*.bundle                        " Stuff to ignore when tab completing
 set noswapfile                                  " Don't create annoying *.swp files"
 
 " ****************************************************
