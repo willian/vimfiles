@@ -10,4 +10,3 @@ autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
 " When loading text files, wrap them and don't split up words.
 au BufNewFile,BufRead *.txt setlocal wrap
 au BufNewFile,BufRead *.txt setlocal lbr
-

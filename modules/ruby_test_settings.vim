@@ -1,97 +1,11 @@
-""""""""""""""""""""""""""""""""
-" PROMOTE VARIABLE TO RSPEC LET
-""""""""""""""""""""""""""""""""
-function! RSPEC_PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-endfunction
-:command! PromoteToLet :call RSPEC_PromoteToLet()
-:map <leader>l :PromoteToLet<cr>
-
-""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""
-function! RSPEC_RunTests(filename)
-  " Write the file and run tests for the given filename
-  :w
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-
-  if executable("xvfb-run")
-    if match(a:filename, '\.feature$') != -1
-      exec ":!xvfb-run script/features " . a:filename
-    else
-      if filereadable("script/test")
-        exec ":!xvfb-run script/test " . a:filename
-      elseif filereadable("Gemfile")
-        exec ":!xvfb-run bundle exec rspec " . a:filename
-      else
-        exec ":!xvfb-run rspec " . a:filename
-      end
-    end
-  else
-    if match(a:filename, '\.feature$') != -1
-      exec ":!script/features " . a:filename
-    else
-      if filereadable("script/test")
-        exec ":!script/test " . a:filename
-      elseif filereadable("Gemfile")
-        exec ":!bundle exec rspec " . a:filename
-      else
-        exec ":!rspec " . a:filename
-      end
-    end
-  end
-endfunction
-
-function! RSPEC_SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:grb_test_file=@%
-endfunction
-
-function! RSPEC_RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-  if in_test_file
-    call RSPEC_SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RSPEC_RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RSPEC_RunTestFileNoRails()
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-  if in_test_file
-    call RSPEC_SetTestFile()
-    :w
-    exec ":!rspec " . t:grb_test_file
-  end
-endfunction
-
-function! RSPEC_RunNearestTest()
-  let spec_line_number = line('.')
-  call RSPEC_RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-map <leader>s :call RSPEC_RunTestFile()<cr>
-map <leader>S :call RSPEC_RunNearestTest()<cr>
-map <leader>b :call RSPEC_RunTestFileNoRails()<cr>
-map <leader>a :call RSPEC_RunTests('')<cr>
-
+"""""""""""""""""""""""""""""""
+" vim-rspec configurations
+"""""""""""""""""""""""""""""""
+let g:rspec_command = 'w | Dispatch bundle exec rspec {spec}'
+map <leader>s :call RunCurrentSpecFile()<cr>
+map <leader>S :call RunNearestSpec()<cr>
+map <leader>l :call RunLastSpec()<cr>
+map <leader>a :call RunAllSpecs()<cr>
 
 """"""""""""""""""""
 " MINITEST
@@ -109,6 +23,7 @@ function! MINITEST_RunTests(filename)
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
 
   if !empty(a:filename)
     let l:filetotest = "TEST=" . a:filename
@@ -116,22 +31,12 @@ function! MINITEST_RunTests(filename)
     let l:filetotest = ""
   end
 
-  if executable("xvfb-run")
-    if filereadable("script/test")
-      exec ":!xvfb-run script/test " . a:filename
-    elseif filereadable("Gemfile")
-      exec ":!xvfb-run bundle exec rake test:all:quick " . l:filetotest
-    else
-      exec ":!xvfb-run rake test:all " . l:filetotest
-    end
+  if filereadable("script/test")
+    exec ":Dispatch script/test " . a:filename
+  elseif filereadable("Gemfile")
+    exec ":Dispatch bundle exec rake test:all ". l:filetotest
   else
-    if filereadable("script/test")
-      exec ":!script/test " . a:filename
-    elseif filereadable("Gemfile")
-      exec ":!bundle exec rake test:all ". l:filetotest
-    else
-      exec ":!rake test:all ". l:filetotest
-    end
+    exec ":Dispatch rake test:all ". l:filetotest
   end
 endfunction
 
@@ -162,7 +67,7 @@ function! MINITEST_RunTestFileNoRails()
   if in_test_file
     call MINITEST_SetTestFile()
     :w
-    exec ":!ruby " . t:grb_test_file
+    exec ":Dispatch ruby " . t:grb_test_file
   end
 endfunction
 
