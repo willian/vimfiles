@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""
 " vim-rspec configurations
 """""""""""""""""""""""""""""""
-let g:rspec_command = 'w | Dispatch bundle exec rspec {spec}'
+let g:rspec_command = 'w | Dispatch rspec {spec}'
 map <leader>s :call RunCurrentSpecFile()<cr>
 map <leader>S :call RunNearestSpec()<cr>
 map <leader>l :call RunLastSpec()<cr>
